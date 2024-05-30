@@ -17,12 +17,12 @@ resource "local_sensitive_file" "pem_file" {
 	content			= tls_private_key.ssh.private_key_pem
 }
 
-resource "local_sensitive_file" "ssh_file" {
-	filename		= pathexpand("./${local.ssh_key_name}.ssh")
-	file_permission		= "600"
-	directory_permission	= "700"
-	content			= tls_private_key.ssh.public_key_openssh
-}
+#resource "local_sensitive_file" "ssh_file" {
+#	filename		= pathexpand("./${local.ssh_key_name}.ssh")
+#	file_permission		= "600"
+#	directory_permission	= "700"
+#	content			= tls_private_key.ssh.public_key_openssh
+#}
 
 resource "null_resource" "authorized_key" {
 	triggers = {
