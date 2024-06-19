@@ -1,11 +1,11 @@
 # external md5
-data "external" "trigger" {
-	program = ["/bin/bash", "-c", <<EOF
-		CHECKSUM=$(cat ${path.root}/state/${var.manifest} | md5sum | awk '{ print $1 }')
-		jq -n --arg checksum "$CHECKSUM" '{"checksum":$checksum}'
-	EOF
-	]
-}
+#data "external" "trigger" {
+#	program = ["/bin/bash", "-c", <<EOF
+#		CHECKSUM=$(cat ${path.root}/state/${var.manifest} | md5sum | awk '{ print $1 }')
+#		jq -n --arg checksum "$CHECKSUM" '{"checksum":$checksum}'
+#	EOF
+#	]
+#}
 
 locals {
 	manifest_dir = var.manifest_dir
